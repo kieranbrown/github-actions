@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.2](https://github.com/kieranbrown/github-actions/compare/v1.0.1...v1.0.2) (2024-03-03)
+
+
+### Bug Fixes
+
+* **digger_job:** fix failure when slack webhook url is missing ([d95b884](https://github.com/kieranbrown/github-actions/commit/d95b884472567b788a1621c8291ca10c5e02b5b5))
+
 ## [1.0.1](https://github.com/kieranbrown/github-actions/compare/v1.0.0...v1.0.1) (2024-03-03)
 
 
