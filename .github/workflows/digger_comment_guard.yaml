@@ -10,7 +10,14 @@ jobs:
     permissions:
       pull-requests: write # required to post PR comments
     steps:
-      - id: pull_request_info
+      - uses: peter-evans/create-or-update-comment@v4.0.0
+        if: (! contains(fromJson('["kieranbrown"]'), github.event.comment.user.login))
+        id: user-is-authorized
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: You do not have permission to issue digger commands @${{ github.event.comment.user.login }}.
+
+      - id: pr-info
         run: |
           {
             echo 'json<<EOF'
@@ -19,11 +26,11 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
       - uses: peter-evans/create-or-update-comment@v4.0.0
-        if: (! fromJson(steps.pull_request_info.outputs.json).mergeable || ! contains(fromJson('["clean", "unstable", "has_hooks"]'), fromJson(steps.pull_request_info.outputs.json).mergeable_state))
+        if: (! fromJson(steps.pr-info.outputs.json).mergeable || ! contains(fromJson('["clean", "unstable", "has_hooks"]'), fromJson(steps.pr-info.outputs.json).mergeable_state))
         id: pr-is-mergeable
         with:
           issue-number: ${{ github.event.issue.number }}
           body: The pull request must be in a mergeable state before the Terraform can be applied.
 
-      - if: steps.pr-is-mergeable.outcome != 'skipped'
+      - if: steps.user-is-authorized.outcome != 'skipped' || steps.pr-is-mergeable.outcome != 'skipped'
         run: exit 1

@@ -26,8 +26,7 @@ jobs:
 
   digger-comment-guard:
     uses: ./.github/workflows/digger_comment_guard.yaml
-    # todo: refactor this so it's not hard-coded username and instead a team lookup; will require a org:read PAT
-    if: github.event_name == 'issue_comment' && github.event.action == 'created' && startsWith(github.event.comment.body, 'digger apply') && ! contains(fromJson('["kieranbrown"]'), github.event.comment.user.login)
+    if: github.event_name == 'issue_comment' && github.event.action == 'created' && startsWith(github.event.comment.body, 'digger')
     permissions:
       pull-requests: write # required to post PR comments
 
