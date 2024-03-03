@@ -1,0 +1,68 @@
+name: Digger Workflow
+
+on:
+  workflow_call:
+    inputs:
+      configFile:
+        required: false
+        type: string
+        default: digger.yaml
+
+jobs:
+  digger-cleanup:
+    uses: ./.github/workflows/digger_cleanup.yaml
+    needs: digger-job
+    # this is a hack until digger supports deleting GitHub artifacts after apply
+    # https://github.com/diggerhq/digger/blob/5dbcbfd3d07f82ba121a0b0d5586ad1267bed4dc/cli/pkg/storage/plan_storage.go#L143
+    if: |-
+      ${{
+        (
+          (github.event_name == 'pull_request' && github.event.action == 'closed') ||
+          (github.event_name == 'issue_comment' && startsWith(github.event.comment.body, 'digger apply') && needs.digger-job.result == 'success')
+        ) && !cancelled()
+      }}
+    permissions:
+      actions: write # required to delete artifacts
+
+  digger-comment-guard:
+    uses: ./.github/workflows/digger_comment_guard.yaml
+    # todo: refactor this so it's not hard-coded username and instead a team lookup; will require a org:read PAT
+    if: github.event_name == 'issue_comment' && github.event.action == 'created' && startsWith(github.event.comment.body, 'digger apply') && ! contains(fromJson('["kieranbrown"]'), github.event.comment.user.login)
+    permissions:
+      pull-requests: write # required to post PR comments
+
+  digger-help:
+    uses: ./.github/workflows/digger_help.yaml
+    if: github.event_name == 'pull_request' && github.event.action == 'opened'
+    permissions:
+      pull-requests: write # required to post PR comments
+
+  digger-job:
+    uses: ./.github/workflows/digger_job.yaml
+    needs: [digger-comment-guard, digger-help]
+    if: |-
+      ${{
+        (
+          (github.event_name == 'issue_comment' && github.event.action == 'created') ||
+          (github.event_name == 'pull_request' && contains(fromJson('["opened", "synchronize"]'), github.event.action)) ||
+          github.event_name == 'schedule'
+        ) &&
+          (github.event_name != 'issue_comment' || startsWith(github.event.comment.body, 'digger')) &&
+          needs.digger-comment-guard.result != 'failure' && !cancelled()
+      }}
+    permissions:
+      actions: write       # required for plan persistence
+      contents: write      # required to merge PRs
+      id-token: write      # required for workload-identity-federation
+      pull-requests: write # required to post PR comments
+      statuses: write      # required to validate combined PR status
+    secrets: inherit
+    with:
+      configFile: ${{ inputs.configFile }}
+      mode: ${{ github.event_name == 'schedule' && 'drift-detection' }}
+
+  digger-notify-slack:
+    uses: ./.github/workflows/digger_notify_slack.yaml
+    needs: digger-job
+    if: always() && needs.digger-job.result != 'skipped' && github.event_name != 'schedule'
+    secrets: inherit

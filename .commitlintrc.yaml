@@ -1,0 +1,15 @@
+extends: ['@commitlint/config-conventional']
+
+rules:
+  scope-enum:
+    - 2
+    - always
+    - [
+        digger_cleanup,
+        digger_comment_guard,
+        digger_help,
+        digger_job,
+        digger_notify_slack,
+        digger_workflow,
+        semantic_release,
+      ]

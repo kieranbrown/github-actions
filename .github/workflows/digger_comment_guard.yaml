@@ -1,0 +1,29 @@
+name: Digger Comment Guard
+
+on:
+  workflow_call:
+
+jobs:
+  digger-comment-guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    permissions:
+      pull-requests: write # required to post PR comments
+    steps:
+      - id: pull_request_info
+        run: |
+          {
+            echo 'json<<EOF'
+            curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.issue.number }}"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - uses: peter-evans/create-or-update-comment@v4.0.0
+        if: (! fromJson(steps.pull_request_info.outputs.json).mergeable || ! contains(fromJson('["clean", "unstable", "has_hooks"]'), fromJson(steps.pull_request_info.outputs.json).mergeable_state))
+        id: pr-is-mergeable
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: The pull request must be in a mergeable state before the Terraform can be applied.
+
+      - if: steps.pr-is-mergeable.outcome != 'skipped'
+        run: exit 1

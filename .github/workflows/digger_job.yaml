@@ -1,0 +1,91 @@
+name: Digger Job
+
+on:
+  workflow_call:
+    inputs:
+      configFile:
+        required: false
+        type: string
+        default: digger.yaml
+      mode:
+        required: false
+        type: string
+    secrets:
+      DIGGER_SLACK_WEBHOOK_URL:
+        required: true
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  digger-job:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      actions: write       # required for plan persistence
+      contents: write      # required to merge PRs
+      id-token: write      # required for workload-identity-federation
+      pull-requests: write # required to post PR comments
+      statuses: write      # required to validate combined PR status
+    steps:
+      - uses: actions/checkout@v4.1.1
+        if: github.event_name == 'issue_comment'
+        with:
+          clean: false
+          ref: refs/pull/${{ github.event.issue.number }}/merge
+
+      - uses: actions/checkout@v4.1.1
+        if: github.event_name != 'issue_comment'
+        with:
+          clean: false
+
+      - run: |
+          mv ${{ inputs.configFile }} "${RUNNER_TEMP}/digger.yaml"
+          rm -f digger.yml digger.yaml
+          mv "${RUNNER_TEMP}/digger.yaml" .
+
+      - uses: oNaiPs/secrets-to-env-action@v1.4
+        with:
+          secrets: ${{ toJSON(vars) }}
+
+      - uses: oNaiPs/secrets-to-env-action@v1.4
+        with:
+          secrets: ${{ toJSON(secrets) }}
+
+      - uses: mikefarah/yq@v4.40.5
+        env:
+          # this is a slight hack to support yq env substitution for digger provided environment variables
+          # https://docs.digger.dev/howto/custom-commands#environment-variables
+          DEFAULT_BRANCH: ${DEFAULT_BRANCH}
+          DIGGER_OUT: ${DIGGER_OUT}
+          PR_BRANCH: ${PR_BRANCH}
+          PROJECT_NAME: ${PROJECT_NAME}
+        with:
+          cmd: >-
+            yq -i '
+              explode(.) |
+              (.collect_usage_data |= false) |
+              (.telemetry |= false) |
+              (select(has("workflows")) | .workflows[] |= (. as $workflow | .. | select(tag == "!!str") |= ($workflow.env_vars.state[] as $env ireduce (.; sub("\${?" + $env.name + "}?", $env.value))))) // . |
+              (del(."x-*")) |
+              (.. | select(tag == "!!str")) |= envsubst(nu)
+            ' digger.yaml
+
+      # https://github.com/diggerhq/digger/issues/1179
+      - run: sudo echo "127.0.0.1 analytics.digger.dev" | sudo tee -a /etc/hosts
+
+      - uses: diggerhq/digger@v0.4.1
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TELEMETRY: false
+          TF_VAR_ci: true
+        with:
+          configure-checkout: false
+          disable-locking: true
+          drift-detection-slack-notification-url: ${{ secrets.DIGGER_SLACK_WEBHOOK_URL }}
+          mode: ${{ inputs.mode }}
+          no-backend: true
+          setup-tfenv: true
+          upload-plan-destination: ${{ inputs.mode != 'drift-detection' && 'github' }}

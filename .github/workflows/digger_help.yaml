@@ -1,0 +1,37 @@
+name: Digger Help
+
+on:
+  workflow_call:
+
+jobs:
+  digger-help:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    permissions:
+      pull-requests: write # required to post PR comments
+    steps:
+      - uses: peter-evans/create-or-update-comment@v4.0.0
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Thank you for your contribution! :tada: Terraform automation is powered by [Digger HQ](https://digger.dev), for comprehensive documentation please visit https://digger.dev.
+
+            Shortly, Digger will Terraform plan your changes and post the results as a Pull Request comment.
+
+            **Available Commands**
+            > Commands are executed as Pull Request comments, e.g. "digger apply"
+
+            ```
+            Usage: digger <subcommand>
+
+            The available commands for execution are listed below.
+
+            Main commands:
+              help            Display help information
+              version         Display version information
+              apply           Apply the Terraform [-p <project name>]
+              plan            Plan the Terraform [-p <project name>]
+              show-projects   Show the impacted projects
+              lock            Lock Terraform project
+              unlock          Unlock the Terraform project
+            ```

@@ -1,0 +1,15 @@
+name: Digger Cleanup
+
+on:
+  workflow_call:
+
+jobs:
+  digger-cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    permissions:
+      actions: write # required to delete artifacts
+    steps:
+      - uses: stefanluptak/delete-old-pr-artifacts@253bfc09f87d1a6f2814734989d65d8cb67d80a4
+        with:
+          workflow_filename: digger_workflow.yaml

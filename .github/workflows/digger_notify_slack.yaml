@@ -1,0 +1,22 @@
+name: Digger Notify Slack
+
+on:
+  workflow_call:
+    secrets:
+      DIGGER_SLACK_WEBHOOK_URL:
+        required: true
+
+jobs:
+  digger-notify-slack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - uses: slackapi/slack-github-action@v1.25.0
+        if: env.SLACK_WEBHOOK_URL
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.DIGGER_SLACK_WEBHOOK_URL }}
+        with:
+          payload: |
+            {
+              "text": "Digger workflow completed in repository <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.repository }}>"
+            }
