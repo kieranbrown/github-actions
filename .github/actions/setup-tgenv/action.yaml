@@ -1,0 +1,13 @@
+name: Setup Tgenv
+description: Set up your GitHub Actions workflow with tgenv
+
+inputs:
+  version:
+    description: The version (branch/tag) to checkout
+    default: main
+
+runs:
+  using: composite
+  steps:
+    - run: git clone --depth 1 --branch ${{ inputs.version }} https://github.com/tgenv/tgenv.git ${{ runner.temp }}/tgenv
+    - run: echo "${{ runner.temp }}/tgenv/bin" >> "$GITHUB_PATH"

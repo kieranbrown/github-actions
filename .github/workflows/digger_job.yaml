@@ -72,6 +72,8 @@ jobs:
               (.. | select(tag == "!!str")) |= envsubst(nu)
             ' digger.yaml
 
+      - uses: ./.github/actions/setup-tgenv
+
       # https://github.com/diggerhq/digger/issues/1179
       - run: sudo echo "127.0.0.1 analytics.digger.dev" | sudo tee -a /etc/hosts
 
