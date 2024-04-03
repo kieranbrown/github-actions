@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0](https://github.com/kieranbrown/github-actions/compare/v1.0.3...v1.1.0) (2024-04-03)
+
+
+### Features
+
+* **digger_job:** persist lambda build artifacts ([18b4f1f](https://github.com/kieranbrown/github-actions/commit/18b4f1f086f6c32100ba79cec15c1f55d0572439))
+
 ## [1.0.3](https://github.com/kieranbrown/github-actions/compare/v1.0.2...v1.0.3) (2024-04-03)
 
 
