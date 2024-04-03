@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.3](https://github.com/kieranbrown/github-actions/compare/v1.0.2...v1.0.3) (2024-04-03)
+
+
+### CI/CD
+
+* **digger_job:** bump action version to 0.4.13 ([98b2446](https://github.com/kieranbrown/github-actions/commit/98b24464ba309712fad437a9bacb431d97295fbc))
+
 ## [1.0.2](https://github.com/kieranbrown/github-actions/compare/v1.0.1...v1.0.2) (2024-03-03)
 
 
