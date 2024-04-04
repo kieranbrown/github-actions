@@ -44,7 +44,7 @@ jobs:
         if: inputs.mode != 'drift-detection'
         with:
           name: builds
-          pr: ${{ github.event.pull_request.number }}
+          pr: ${{ github.event.pull_request.number || github.event.issue.number }}
           workflow: digger_workflow.yaml
           search_artifacts: true
           if_no_artifact_found: ignore
