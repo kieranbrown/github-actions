@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1](https://github.com/kieranbrown/github-actions/compare/v1.1.0...v1.1.1) (2024-04-04)
+
+
+### Bug Fixes
+
+* **digger_job:** not restoring correct artifact on issue comments ([c96b6da](https://github.com/kieranbrown/github-actions/commit/c96b6dad7f2611153d040aaad08c30a975db9f02))
+
 ## [1.1.0](https://github.com/kieranbrown/github-actions/compare/v1.0.3...v1.1.0) (2024-04-03)
 
 
