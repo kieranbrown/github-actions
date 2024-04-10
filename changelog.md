@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.2](https://github.com/kieranbrown/github-actions/compare/v1.1.1...v1.1.2) (2024-04-10)
+
+
+### Bug Fixes
+
+* **digger_workflow:** do not cleanup when doing targetted applies ([286e13c](https://github.com/kieranbrown/github-actions/commit/286e13cac3259f03127c47efaa9ea4f14dc585e8))
+
 ## [1.1.1](https://github.com/kieranbrown/github-actions/compare/v1.1.0...v1.1.1) (2024-04-04)
 
 
