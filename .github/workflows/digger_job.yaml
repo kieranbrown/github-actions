@@ -29,13 +29,13 @@ jobs:
       pull-requests: write # required to post PR comments
       statuses: write      # required to validate combined PR status
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4.1.2
         if: github.event_name == 'issue_comment'
         with:
           clean: false
           ref: refs/pull/${{ github.event.issue.number }}/merge
 
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4.1.2
         if: github.event_name != 'issue_comment'
         with:
           clean: false
@@ -54,15 +54,15 @@ jobs:
           rm -f digger.yml digger.yaml
           mv "${RUNNER_TEMP}/digger.yaml" .
 
-      - uses: oNaiPs/secrets-to-env-action@v1.4
+      - uses: oNaiPs/secrets-to-env-action@v1.5
         with:
           secrets: ${{ toJSON(vars) }}
 
-      - uses: oNaiPs/secrets-to-env-action@v1.4
+      - uses: oNaiPs/secrets-to-env-action@v1.5
         with:
           secrets: ${{ toJSON(secrets) }}
 
-      - uses: mikefarah/yq@v4.40.5
+      - uses: mikefarah/yq@v4.43.1
         env:
           # this is a slight hack to support yq env substitution for digger provided environment variables
           # https://docs.digger.dev/howto/custom-commands#environment-variables
