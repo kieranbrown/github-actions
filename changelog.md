@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.3](https://github.com/kieranbrown/github-actions/compare/v1.1.2...v1.1.3) (2024-04-14)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump the gh-actions group with 4 updates ([#6](https://github.com/kieranbrown/github-actions/issues/6)) ([92e941e](https://github.com/kieranbrown/github-actions/commit/92e941e9a9739335c19fc64a27b0cc5ae0123d85))
+
+
+### CI/CD
+
+* fix invalid dependabot syntax ([09b9c5b](https://github.com/kieranbrown/github-actions/commit/09b9c5b5e37d34ec5fac1af484bfb4d881a7f5c2))
+* group dependabot pull requests ([d2518c8](https://github.com/kieranbrown/github-actions/commit/d2518c800e3da962bc28f0cca901d43dfbecdd55))
+
 ## [1.1.2](https://github.com/kieranbrown/github-actions/compare/v1.1.1...v1.1.2) (2024-04-10)
 
 
