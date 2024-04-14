@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.2](https://github.com/kieranbrown/github-actions/compare/v1.1.1...v1.1.2) (2024-04-10)
+
+
+### Bug Fixes
+
+* **digger_workflow:** do not cleanup when doing targetted applies ([286e13c](https://github.com/kieranbrown/github-actions/commit/286e13cac3259f03127c47efaa9ea4f14dc585e8))
+
+## [1.1.1](https://github.com/kieranbrown/github-actions/compare/v1.1.0...v1.1.1) (2024-04-04)
+
+
+### Bug Fixes
+
+* **digger_job:** not restoring correct artifact on issue comments ([c96b6da](https://github.com/kieranbrown/github-actions/commit/c96b6dad7f2611153d040aaad08c30a975db9f02))
+
+## [1.1.0](https://github.com/kieranbrown/github-actions/compare/v1.0.3...v1.1.0) (2024-04-03)
+
+
+### Features
+
+* **digger_job:** persist lambda build artifacts ([18b4f1f](https://github.com/kieranbrown/github-actions/commit/18b4f1f086f6c32100ba79cec15c1f55d0572439))
+
+## [1.0.3](https://github.com/kieranbrown/github-actions/compare/v1.0.2...v1.0.3) (2024-04-03)
+
+
+### CI/CD
+
+* **digger_job:** bump action version to 0.4.13 ([98b2446](https://github.com/kieranbrown/github-actions/commit/98b24464ba309712fad437a9bacb431d97295fbc))
+
 ## [1.0.2](https://github.com/kieranbrown/github-actions/compare/v1.0.1...v1.0.2) (2024-03-03)
 
 

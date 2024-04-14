@@ -40,6 +40,15 @@ jobs:
         with:
           clean: false
 
+      - uses: dawidd6/action-download-artifact@v3.1.4
+        if: inputs.mode != 'drift-detection'
+        with:
+          name: builds
+          pr: ${{ github.event.pull_request.number || github.event.issue.number }}
+          workflow: digger_workflow.yaml
+          search_artifacts: true
+          if_no_artifact_found: ignore
+
       - run: |
           mv ${{ inputs.configFile }} "${RUNNER_TEMP}/digger.yaml"
           rm -f digger.yml digger.yaml
@@ -75,7 +84,7 @@ jobs:
       # https://github.com/diggerhq/digger/issues/1179
       - run: sudo echo "127.0.0.1 analytics.digger.dev" | sudo tee -a /etc/hosts
 
-      - uses: diggerhq/digger@v0.4.1
+      - uses: diggerhq/digger@v0.4.13
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -89,3 +98,11 @@ jobs:
           no-backend: true
           setup-tfenv: true
           upload-plan-destination: ${{ inputs.mode != 'drift-detection' && 'github' }}
+
+      - uses: actions/upload-artifact@v4.3.1
+        if: inputs.mode != 'drift-detection'
+        with:
+          name: builds
+          path: '**/builds'
+          if-no-files-found: ignore
+          retention-days: 90 # cleaned up once PR is closed
