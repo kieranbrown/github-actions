@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.5](https://github.com/kieranbrown/github-actions/compare/v1.1.4...v1.1.5) (2024-04-14)
+
+
+### Bug Fixes
+
+* **digger_job:** fix error when there are no vars or secrets to export ([7072586](https://github.com/kieranbrown/github-actions/commit/707258683e0fd11e0f9b05aa72ffe6683d421196))
+
 ## [1.1.4](https://github.com/kieranbrown/github-actions/compare/v1.1.3...v1.1.4) (2024-04-14)
 
 
