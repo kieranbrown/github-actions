@@ -3,7 +3,10 @@ name: Digger Workflow
 on:
   workflow_call:
     inputs:
-      configFile:
+      aws-role-to-assume:
+        required: false
+        type: string
+      config-file:
         required: false
         type: string
         default: digger.yaml
@@ -57,7 +60,8 @@ jobs:
       statuses: write      # required to validate combined PR status
     secrets: inherit
     with:
-      configFile: ${{ inputs.configFile }}
+      aws-role-to-assume: ${{ inputs.aws-role-to-assume }}
+      config-file: ${{ inputs.config-file }}
       mode: ${{ github.event_name == 'schedule' && 'drift-detection' }}
 
   digger-notify-slack:
