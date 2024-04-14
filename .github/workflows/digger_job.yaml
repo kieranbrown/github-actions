@@ -54,11 +54,11 @@ jobs:
           rm -f digger.yml digger.yaml
           mv "${RUNNER_TEMP}/digger.yaml" .
 
-      - uses: oNaiPs/secrets-to-env-action@v1.4
+      - uses: oNaiPs/secrets-to-env-action@v1.5
         with:
           secrets: ${{ toJSON(vars) }}
 
-      - uses: oNaiPs/secrets-to-env-action@v1.4
+      - uses: oNaiPs/secrets-to-env-action@v1.5
         with:
           secrets: ${{ toJSON(secrets) }}
 
