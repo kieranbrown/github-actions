@@ -3,7 +3,10 @@ name: Digger Job
 on:
   workflow_call:
     inputs:
-      configFile:
+      aws-role-to-assume:
+        required: false
+        type: string
+      config-file:
         required: false
         type: string
         default: digger.yaml
@@ -50,7 +53,7 @@ jobs:
           if_no_artifact_found: ignore
 
       - run: |
-          mv ${{ inputs.configFile }} "${RUNNER_TEMP}/digger.yaml"
+          mv ${{ inputs.config-file }} "${RUNNER_TEMP}/digger.yaml"
           rm -f digger.yml digger.yaml
           mv "${RUNNER_TEMP}/digger.yaml" .
 
@@ -93,11 +96,13 @@ jobs:
           TELEMETRY: false
           TF_VAR_ci: true
         with:
+          aws-role-to-assume: ${{ inputs.aws-role-to-assume }}
           configure-checkout: false
           disable-locking: true
           drift-detection-slack-notification-url: ${{ secrets.DIGGER_SLACK_WEBHOOK_URL }}
           mode: ${{ inputs.mode }}
           no-backend: true
+          setup-aws: ${{ inputs.aws-role-to-assume && true }}
           setup-tfenv: true
           upload-plan-destination: ${{ inputs.mode != 'drift-detection' && 'github' }}
 
