@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/kieranbrown/github-actions/compare/v1.1.5...v1.2.0) (2024-04-14)
+
+
+### Features
+
+* **digger_job:** install and configure tgenv ([#1](https://github.com/kieranbrown/github-actions/issues/1)) ([b6ecefa](https://github.com/kieranbrown/github-actions/commit/b6ecefa57f73c1aeed73457b48e4d58d25324636))
+
 ## [1.1.5](https://github.com/kieranbrown/github-actions/compare/v1.1.4...v1.1.5) (2024-04-14)
 
 
