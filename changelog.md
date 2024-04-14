@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0](https://github.com/kieranbrown/github-actions/compare/v1.2.0...v1.3.0) (2024-04-14)
+
+
+### Features
+
+* **digger_job:** added aws assume role support ([#7](https://github.com/kieranbrown/github-actions/issues/7)) ([6cf10ab](https://github.com/kieranbrown/github-actions/commit/6cf10ab3aa9029aecb5e68da5b41034ff928e2e3))
+
 ## [1.2.0](https://github.com/kieranbrown/github-actions/compare/v1.1.5...v1.2.0) (2024-04-14)
 
 
