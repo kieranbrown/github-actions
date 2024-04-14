@@ -56,11 +56,11 @@ jobs:
 
       - uses: oNaiPs/secrets-to-env-action@v1.5
         with:
-          secrets: ${{ toJSON(vars) || '{}' }}
+          secrets: ${{ toJSON(vars || fromJSON('{}')) }}
 
       - uses: oNaiPs/secrets-to-env-action@v1.5
         with:
-          secrets: ${{ toJSON(secrets) || '{}' }}
+          secrets: ${{ toJSON(secrets || fromJSON('{}')) }}
 
       - uses: mikefarah/yq@v4.43.1
         env:
