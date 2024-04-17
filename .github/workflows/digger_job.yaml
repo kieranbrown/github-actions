@@ -94,6 +94,8 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TELEMETRY: false
+          TERRAGRUNT_NON_INTERACTIVE: true
+          TF_IN_AUTOMATION: true
           TF_VAR_ci: true
         with:
           aws-role-to-assume: ${{ inputs.aws-role-to-assume }}
