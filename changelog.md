@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0](https://github.com/kieranbrown/github-actions/compare/v1.3.0...v1.4.0) (2024-04-17)
+
+
+### Features
+
+* run terraform and terragrunt non-interactive ([7116a5b](https://github.com/kieranbrown/github-actions/commit/7116a5bb397c1047f84111d201b77402369c9aae))
+
 ## [1.3.0](https://github.com/kieranbrown/github-actions/compare/v1.2.0...v1.3.0) (2024-04-14)
 
 
