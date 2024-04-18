@@ -13,7 +13,7 @@ on:
 
 jobs:
   digger-cleanup:
-    uses: ./.github/workflows/digger_cleanup.yaml
+    uses: ./.github/workflows/digger-cleanup.yaml
     needs: digger-job
     # this is a hack until digger supports deleting GitHub artifacts after apply
     # https://github.com/diggerhq/digger/blob/5dbcbfd3d07f82ba121a0b0d5586ad1267bed4dc/cli/pkg/storage/plan_storage.go#L143
@@ -28,19 +28,19 @@ jobs:
       actions: write # required to delete artifacts
 
   digger-comment-guard:
-    uses: ./.github/workflows/digger_comment_guard.yaml
+    uses: ./.github/workflows/digger-comment-guard.yaml
     if: github.event_name == 'issue_comment' && github.event.action == 'created' && startsWith(github.event.comment.body, 'digger')
     permissions:
       pull-requests: write # required to post PR comments
 
   digger-help:
-    uses: ./.github/workflows/digger_help.yaml
+    uses: ./.github/workflows/digger-help.yaml
     if: github.event_name == 'pull_request' && github.event.action == 'opened'
     permissions:
       pull-requests: write # required to post PR comments
 
   digger-job:
-    uses: ./.github/workflows/digger_job.yaml
+    uses: ./.github/workflows/digger-job.yaml
     needs: [digger-comment-guard, digger-help]
     if: |-
       ${{
@@ -65,7 +65,7 @@ jobs:
       mode: ${{ github.event_name == 'schedule' && 'drift-detection' }}
 
   digger-notify-slack:
-    uses: ./.github/workflows/digger_notify_slack.yaml
+    uses: ./.github/workflows/digger-notify-slack.yaml
     needs: digger-job
     if: always() && needs.digger-job.result != 'skipped' && github.event_name != 'schedule'
     secrets: inherit

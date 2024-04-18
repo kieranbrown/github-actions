@@ -48,7 +48,7 @@ jobs:
         with:
           name: builds
           pr: ${{ github.event.pull_request.number || github.event.issue.number }}
-          workflow: digger_workflow.yaml
+          workflow: digger-workflow.yaml
           search_artifacts: true
           if_no_artifact_found: ignore
 

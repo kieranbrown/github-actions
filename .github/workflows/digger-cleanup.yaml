@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: stefanluptak/delete-old-pr-artifacts@253bfc09f87d1a6f2814734989d65d8cb67d80a4
         with:
-          workflow_filename: digger_workflow.yaml
+          workflow_filename: digger-workflow.yaml
