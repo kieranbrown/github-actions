@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.1](https://github.com/kieranbrown/github-actions/compare/v1.5.0...v1.5.1) (2024-04-30)
+
+
+### Bug Fixes
+
+* **digger-job:** sts requests failing due to missing region ([ab16988](https://github.com/kieranbrown/github-actions/commit/ab16988a187d240bdb868482b494c3baec385e08))
+
 ## [1.5.0](https://github.com/kieranbrown/github-actions/compare/v1.4.1...v1.5.0) (2024-04-30)
 
 
