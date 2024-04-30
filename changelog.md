@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0](https://github.com/kieranbrown/github-actions/compare/v1.4.1...v1.5.0) (2024-04-30)
+
+
+### Features
+
+* **digger-job:** enable dependency caching ([4494e92](https://github.com/kieranbrown/github-actions/commit/4494e922beaa83984f62d6ebaf521f73bf123ad8))
+
 ## [1.4.1](https://github.com/kieranbrown/github-actions/compare/v1.4.0...v1.4.1) (2024-04-18)
 
 
