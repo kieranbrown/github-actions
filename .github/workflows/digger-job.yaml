@@ -32,18 +32,18 @@ jobs:
       pull-requests: write # required to post PR comments
       statuses: write      # required to validate combined PR status
     steps:
-      - uses: actions/checkout@v4.1.4
+      - uses: actions/checkout@v4.1.7
         if: github.event_name == 'issue_comment'
         with:
           clean: false
           ref: refs/pull/${{ github.event.issue.number }}/merge
 
-      - uses: actions/checkout@v4.1.4
+      - uses: actions/checkout@v4.1.7
         if: github.event_name != 'issue_comment'
         with:
           clean: false
 
-      - uses: dawidd6/action-download-artifact@v3.1.4
+      - uses: dawidd6/action-download-artifact@v6
         if: inputs.mode != 'drift-detection'
         with:
           name: builds
@@ -65,7 +65,7 @@ jobs:
         with:
           secrets: ${{ toJSON(secrets || fromJSON('{}')) }}
 
-      - uses: mikefarah/yq@v4.43.1
+      - uses: mikefarah/yq@v4.44.2
         env:
           # this is a slight hack to support yq env substitution for digger provided environment variables
           # https://docs.digger.dev/howto/custom-commands#environment-variables
@@ -89,7 +89,7 @@ jobs:
       # https://github.com/diggerhq/digger/issues/1179
       - run: sudo echo "127.0.0.1 analytics.digger.dev" | sudo tee -a /etc/hosts
 
-      - uses: diggerhq/digger@v0.4.19
+      - uses: diggerhq/digger@v0.5.6
         env:
           AWS_REGION: us-east-1
           GITHUB_CONTEXT: ${{ toJson(github) }}
