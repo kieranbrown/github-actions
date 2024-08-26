@@ -65,7 +65,7 @@ jobs:
         with:
           secrets: ${{ toJSON(secrets || fromJSON('{}')) }}
 
-      - uses: mikefarah/yq@v4.44.2
+      - uses: mikefarah/yq@v4.44.3
         env:
           # this is a slight hack to support yq env substitution for digger provided environment variables
           # https://docs.digger.dev/howto/custom-commands#environment-variables
@@ -89,7 +89,7 @@ jobs:
       # https://github.com/diggerhq/digger/issues/1179
       - run: sudo echo "127.0.0.1 analytics.digger.dev" | sudo tee -a /etc/hosts
 
-      - uses: diggerhq/digger@v0.6.18
+      - uses: diggerhq/digger@v0.6.37
         env:
           AWS_REGION: us-east-1
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -111,7 +111,7 @@ jobs:
           setup-tfenv: true
           upload-plan-destination: ${{ inputs.mode != 'drift-detection' && 'github' }}
 
-      - uses: actions/upload-artifact@v4.3.4
+      - uses: actions/upload-artifact@v4.3.6
         if: inputs.mode != 'drift-detection'
         with:
           name: builds
