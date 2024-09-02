@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.4](https://github.com/kieranbrown/github-actions/compare/v1.5.3...v1.5.4) (2024-09-02)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump the gh-actions group across 1 directory with 4 updates ([#25](https://github.com/kieranbrown/github-actions/issues/25)) ([d50f1a8](https://github.com/kieranbrown/github-actions/commit/d50f1a82e26583728231f24aa3f45eb31deec5ba))
+
 ## [1.5.3](https://github.com/kieranbrown/github-actions/compare/v1.5.2...v1.5.3) (2024-08-19)
 
 
