@@ -89,7 +89,7 @@ jobs:
       # https://github.com/diggerhq/digger/issues/1179
       - run: sudo echo "127.0.0.1 analytics.digger.dev" | sudo tee -a /etc/hosts
 
-      - uses: diggerhq/digger@v0.6.38
+      - uses: diggerhq/digger@v0.6.42
         env:
           AWS_REGION: us-east-1
           GITHUB_CONTEXT: ${{ toJson(github) }}
