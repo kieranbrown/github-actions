@@ -32,13 +32,13 @@ jobs:
       pull-requests: write # required to post PR comments
       statuses: write      # required to validate combined PR status
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@v4.2.2
         if: github.event_name == 'issue_comment'
         with:
           clean: false
           ref: refs/pull/${{ github.event.issue.number }}/merge
 
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@v4.2.2
         if: github.event_name != 'issue_comment'
         with:
           clean: false
@@ -89,7 +89,7 @@ jobs:
       # https://github.com/diggerhq/digger/issues/1179
       - run: sudo echo "127.0.0.1 analytics.digger.dev" | sudo tee -a /etc/hosts
 
-      - uses: diggerhq/digger@v0.6.38
+      - uses: diggerhq/digger@v0.6.49
         env:
           AWS_REGION: us-east-1
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -111,7 +111,7 @@ jobs:
           setup-tfenv: true
           upload-plan-destination: ${{ inputs.mode != 'drift-detection' && 'github' }}
 
-      - uses: actions/upload-artifact@v4.4.0
+      - uses: actions/upload-artifact@v4.4.3
         if: inputs.mode != 'drift-detection'
         with:
           name: builds
