@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.0](https://github.com/kieranbrown/github-actions/compare/v1.5.4...v1.6.0) (2025-01-26)
+
+
+### Features
+
+* **pre-commit-autoupdate:** added workflow ([#38](https://github.com/kieranbrown/github-actions/issues/38)) ([f99d0d4](https://github.com/kieranbrown/github-actions/commit/f99d0d4a3e9bd16115979e22625f854db12564f0))
+
 ## [1.5.4](https://github.com/kieranbrown/github-actions/compare/v1.5.3...v1.5.4) (2024-09-02)
 
 
