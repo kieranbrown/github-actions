@@ -5,11 +5,6 @@ rules:
     - 2
     - always
     - [
-        digger-cleanup,
-        digger-comment-guard,
-        digger-help,
-        digger-job,
-        digger-notify-slack,
-        digger-workflow,
+        pre-commit-autoupdate,
         semantic-release,
       ]
