@@ -1,3 +1,5 @@
+exclude: ^CHANGELOG\.md$
+
 repos:
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: 2.7.3
