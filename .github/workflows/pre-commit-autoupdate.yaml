@@ -1,0 +1,46 @@
+name: Pre-commit AutoUpdate
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  schedule: ## 8am every week on Monday
+    - cron: '0 8 * * 1'
+
+jobs:
+  autoupdate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4.2.0
+
+      - uses: actions/setup-python@v5.3.0
+        with:
+          python-version: 3.12
+          # cache: pip
+
+      - run: pip install pre-commit==3.7.1
+
+      - run: |
+          UPDATE_MESSAGE=$(pre-commit autoupdate | grep -i 'updating' | grep -v 'Updating dependencies' | sed 's/Updating//g')
+          echo "$UPDATE_MESSAGE"
+          {
+            echo "UPDATE_MESSAGE<<EOF"
+            echo "${UPDATE_MESSAGE}"
+            echo "EOF"
+          } >> "$GITHUB_ENV"
+
+      - uses: peter-evans/create-pull-request@v7.0.5
+        with:
+          title: 'chore(deps): update pre-commit hooks'
+          branch: pre-commit-update-hooks
+          commit-message: 'chore(deps): update pre-commit hooks'
+          delete-branch: true
+          body: |
+            Bumps the following `pre-commit` hooks.
+
+            ```text
+            ${{ env.UPDATE_MESSAGE }}
+            ```
