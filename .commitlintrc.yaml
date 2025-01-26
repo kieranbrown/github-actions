@@ -5,6 +5,6 @@ rules:
     - 2
     - always
     - [
+        digger,
         pre-commit-autoupdate,
-        semantic-release,
       ]
