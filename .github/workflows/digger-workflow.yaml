@@ -10,6 +10,10 @@ on:
         required: false
         type: string
         default: digger.yaml
+      upload-plan-destination:
+        required: false
+        type: string
+        default: ${{ github.event.repository.private && 'github' }}
 
 jobs:
   digger-cleanup:
@@ -56,6 +60,7 @@ jobs:
       actions: write       # required for plan persistence
       contents: write      # required to merge PRs
       id-token: write      # required for workload-identity-federation
+      issues: write        # required to create drift issues
       pull-requests: write # required to post PR comments
       statuses: write      # required to validate combined PR status
     secrets: inherit
@@ -63,6 +68,7 @@ jobs:
       aws-role-to-assume: ${{ inputs.aws-role-to-assume }}
       config-file: ${{ inputs.config-file }}
       mode: ${{ github.event_name == 'schedule' && 'drift-detection' }}
+      upload-plan-destination: ${{ inputs.upload-plan-destination }}
 
   digger-notify-slack:
     uses: ./.github/workflows/digger-notify-slack.yaml
