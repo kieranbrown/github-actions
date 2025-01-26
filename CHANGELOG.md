@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.0](https://github.com/kieranbrown/github-actions/compare/v1.6.0...v1.7.0) (2025-01-26)
+
+
+### Features
+
+* **digger:** general improvements and action upgrades ([#37](https://github.com/kieranbrown/github-actions/issues/37)) ([07bdab5](https://github.com/kieranbrown/github-actions/commit/07bdab58713ea2428c15933d0a2b20faa8bb90d5))
+
+
+### Miscellaneous Chores
+
+* **deps:** bump the gh-actions group across 1 directory with 5 updates ([#41](https://github.com/kieranbrown/github-actions/issues/41)) ([8064432](https://github.com/kieranbrown/github-actions/commit/80644322f0c0e466d801b77ffcf8f634ff2dd991))
+
+
+### Continuous Integration
+
+* migrate from semantic-release to release-please ([#39](https://github.com/kieranbrown/github-actions/issues/39)) ([7dc87fe](https://github.com/kieranbrown/github-actions/commit/7dc87fed2e0b8ae81e5e24f3abcb3a9189efb2f7))
+
 ## [1.6.0](https://github.com/kieranbrown/github-actions/compare/v1.5.4...v1.6.0) (2025-01-26)
 
 
