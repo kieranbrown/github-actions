@@ -6,4 +6,5 @@ rules:
     - always
     - [
         digger,
+        pre-commit-autoupdate,
       ]
