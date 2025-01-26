@@ -39,13 +39,13 @@ jobs:
     steps:
       - uses: kieranbrown/github-actions/.github/actions/setup-tgenv@v1
 
-      - uses: actions/checkout@v4.2.0
+      - uses: actions/checkout@v4.2.2
         if: github.event_name == 'issue_comment'
         with:
           clean: false
           ref: refs/pull/${{ github.event.issue.number }}/merge
 
-      - uses: actions/checkout@v4.2.0
+      - uses: actions/checkout@v4.2.2
         if: github.event_name != 'issue_comment'
         with:
           clean: false
@@ -55,7 +55,7 @@ jobs:
           rm -f digger.yml digger.yaml
           mv "${RUNNER_TEMP}/digger.yaml" .
 
-      - uses: dawidd6/action-download-artifact@c03fb0c92813d0d9b088539572090518f7797df4 # v6
+      - uses: dawidd6/action-download-artifact@20319c5641d495c8a52e688b7dc5fada6c3a9fbc # v6
         if: inputs.mode != 'drift-detection'
         with:
           name: builds
@@ -98,7 +98,7 @@ jobs:
             (.. | select(tag == "!!str")) |= envsubst(nu)
           ' digger.yaml
 
-      - uses: diggerhq/digger@v0.6.74
+      - uses: diggerhq/digger@v0.6.83
         env:
           AWS_REGION: us-east-1 # required since https://github.com/diggerhq/digger/pull/1350
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -117,7 +117,7 @@ jobs:
           setup-tfenv: true
           upload-plan-destination: ${{ inputs.mode != 'drift-detection' && inputs.upload-plan-destination }}
 
-      - uses: actions/upload-artifact@v4.4.3
+      - uses: actions/upload-artifact@v4.6.0
         if: inputs.mode != 'drift-detection'
         with:
           name: builds
