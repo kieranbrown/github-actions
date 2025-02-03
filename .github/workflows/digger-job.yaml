@@ -64,7 +64,7 @@ jobs:
           search_artifacts: true
           if_no_artifact_found: ignore
 
-      - uses: aws-actions/configure-aws-credentials@v4.0.2
+      - uses: aws-actions/configure-aws-credentials@v4.0.3
         if: inputs.aws-role-to-assume
         with:
           aws-region: us-east-1
