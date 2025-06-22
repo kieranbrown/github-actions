@@ -64,7 +64,7 @@ jobs:
           search_artifacts: true
           if_no_artifact_found: ignore
 
-      - uses: aws-actions/configure-aws-credentials@v4.0.2
+      - uses: aws-actions/configure-aws-credentials@v4.2.1
         if: inputs.aws-role-to-assume
         with:
           aws-region: us-east-1
@@ -98,7 +98,7 @@ jobs:
             (.. | select(tag == "!!str")) |= envsubst(nu)
           ' digger.yaml
 
-      - uses: diggerhq/digger@v0.6.83
+      - uses: diggerhq/digger@v0.6.106
         env:
           AWS_REGION: us-east-1 # required since https://github.com/diggerhq/digger/pull/1350
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -117,7 +117,7 @@ jobs:
           setup-tfenv: true
           upload-plan-destination: ${{ inputs.mode != 'drift-detection' && inputs.upload-plan-destination }}
 
-      - uses: actions/upload-artifact@v4.6.0
+      - uses: actions/upload-artifact@v4.6.2
         if: inputs.mode != 'drift-detection'
         with:
           name: builds
