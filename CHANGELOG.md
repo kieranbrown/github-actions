@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.4](https://github.com/kieranbrown/github-actions/compare/v1.7.3...v1.7.4) (2025-06-22)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump dawidd6/action-download-artifact from 8 to 11 ([#50](https://github.com/kieranbrown/github-actions/issues/50)) ([69f3c7f](https://github.com/kieranbrown/github-actions/commit/69f3c7f0b51899dd14ce70fe27953b313cd9a340))
+
 ## [1.7.3](https://github.com/kieranbrown/github-actions/compare/v1.7.2...v1.7.3) (2025-06-22)
 
 
