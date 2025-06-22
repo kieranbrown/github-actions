@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.2](https://github.com/kieranbrown/github-actions/compare/v1.7.1...v1.7.2) (2025-06-22)
+
+
+### Miscellaneous Chores
+
+* **deps:** update pre-commit hooks ([#52](https://github.com/kieranbrown/github-actions/issues/52)) ([e63e574](https://github.com/kieranbrown/github-actions/commit/e63e5745791eb34e7ca2b99b30e890662ad20f1f))
+
 ## [1.7.1](https://github.com/kieranbrown/github-actions/compare/v1.7.0...v1.7.1) (2025-06-22)
 
 
