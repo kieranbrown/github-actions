@@ -7,7 +7,9 @@ updates:
       - /.github/actions/**
     groups:
       gh-actions:
-        patterns: ["*"]
+        update-types:
+          - minor
+          - patch
     schedule:
       interval: weekly
       day: monday

@@ -5,6 +5,7 @@ rules:
     - 2
     - always
     - [
+        dependabot-auto-merge,
         digger,
         pre-commit-autoupdate,
       ]
