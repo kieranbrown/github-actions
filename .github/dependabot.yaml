@@ -5,13 +5,11 @@ updates:
     directories:
       - /
       - /.github/actions/**
-    groups:
-      gh-actions:
-        update-types:
-          - minor
-          - patch
     schedule:
       interval: weekly
       day: monday
-      time: "08:00"
-      timezone: Europe/London
+    groups:
+      gha:
+        update-types:
+          - minor
+          - patch
