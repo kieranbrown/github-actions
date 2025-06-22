@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.3](https://github.com/kieranbrown/github-actions/compare/v1.7.2...v1.7.3) (2025-06-22)
+
+
+### Continuous Integration
+
+* replace ubuntu-latest with ubuntu-24.04 ([e2646ec](https://github.com/kieranbrown/github-actions/commit/e2646ecd2999f76979a50f77fafdd8c3d4f1b477))
+* **workflow-keepalive:** added workflow ([49f114c](https://github.com/kieranbrown/github-actions/commit/49f114ca0f53afc0648400d02f2151100af1fc2d))
+
 ## [1.7.2](https://github.com/kieranbrown/github-actions/compare/v1.7.1...v1.7.2) (2025-06-22)
 
 
