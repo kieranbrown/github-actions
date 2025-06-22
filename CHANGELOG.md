@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.5](https://github.com/kieranbrown/github-actions/compare/v1.7.4...v1.7.5) (2025-06-22)
+
+
+### Code Refactoring
+
+* dependabot formatting ([6fd121b](https://github.com/kieranbrown/github-actions/commit/6fd121bf2c2055802a748c63db3d5425be22fafb))
+
 ## [1.7.4](https://github.com/kieranbrown/github-actions/compare/v1.7.3...v1.7.4) (2025-06-22)
 
 
