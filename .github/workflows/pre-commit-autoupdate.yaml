@@ -44,3 +44,8 @@ jobs:
             ```text
             ${{ env.UPDATE_MESSAGE }}
             ```
+
+  workflow-keepalive:
+    uses: ./.github/workflows/workflow-keepalive.yaml
+    permissions:
+      actions: write

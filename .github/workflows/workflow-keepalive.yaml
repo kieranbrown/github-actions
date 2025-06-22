@@ -1,0 +1,18 @@
+name: Workflow Keepalive
+
+on:
+  workflow_call:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-24.04
+    if: github.event_name == 'schedule'
+    timeout-minutes: 1
+    permissions:
+      actions: write
+    steps:
+      - uses: liskin/gh-workflow-keepalive@f72ff1a1336129f29bf0166c0fd0ca6cf1bcb38c # v1.2.1

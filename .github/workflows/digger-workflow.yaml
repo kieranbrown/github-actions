@@ -75,3 +75,8 @@ jobs:
     needs: digger-job
     if: always() && needs.digger-job.result != 'skipped' && github.event_name != 'schedule'
     secrets: inherit
+
+  workflow-keepalive:
+    uses: ./.github/workflows/workflow-keepalive.yaml
+    permissions:
+      actions: write

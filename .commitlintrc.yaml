@@ -8,4 +8,5 @@ rules:
         dependabot-auto-merge,
         digger,
         pre-commit-autoupdate,
+        workflow-keepalive,
       ]
