@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 1
     steps:
-      - uses: slackapi/slack-github-action@v2.0.0
+      - uses: slackapi/slack-github-action@v2.1.0
         if: env.SLACK_WEBHOOK_URL
         with:
           webhook: ${{ secrets.DIGGER_SLACK_WEBHOOK_URL }}

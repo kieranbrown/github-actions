@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.2](https://github.com/kieranbrown/github-actions/compare/v1.7.1...v1.7.2) (2025-06-22)
+
+
+### Miscellaneous Chores
+
+* **deps:** update pre-commit hooks ([#52](https://github.com/kieranbrown/github-actions/issues/52)) ([e63e574](https://github.com/kieranbrown/github-actions/commit/e63e5745791eb34e7ca2b99b30e890662ad20f1f))
+
+## [1.7.1](https://github.com/kieranbrown/github-actions/compare/v1.7.0...v1.7.1) (2025-06-22)
+
+
+### Bug Fixes
+
+* **dependabot-auto-merge:** use squash merges ([cfeac26](https://github.com/kieranbrown/github-actions/commit/cfeac26731e4e51ad21673cf1349ce42641aa6e9))
+
+
+### Miscellaneous Chores
+
+* **deps:** bump the gh-actions group across 1 directory with 6 updates ([#51](https://github.com/kieranbrown/github-actions/issues/51)) ([5705641](https://github.com/kieranbrown/github-actions/commit/5705641d938f0bc7254d01e89714157bf2dad475))
+
+
+### Continuous Integration
+
+* **dependabot-auto-merge:** added workflow ([18d4e49](https://github.com/kieranbrown/github-actions/commit/18d4e49e2dba4b452683030cd3130490325e2532))
+* fix dependabot not updating actions ([6fced45](https://github.com/kieranbrown/github-actions/commit/6fced459ed5c8ad6713ff920ac42915de2d48d8f))
+
 ## [1.7.0](https://github.com/kieranbrown/github-actions/compare/v1.6.0...v1.7.0) (2025-01-26)
 
 
