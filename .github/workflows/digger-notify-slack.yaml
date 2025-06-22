@@ -8,7 +8,7 @@ on:
 
 jobs:
   digger-notify-slack:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 1
     steps:
       - uses: slackapi/slack-github-action@v2.1.0

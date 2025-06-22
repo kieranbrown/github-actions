@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   digger-job:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     permissions:
       actions: write       # required for plan persistence
