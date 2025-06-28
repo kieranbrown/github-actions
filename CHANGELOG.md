@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.6](https://github.com/kieranbrown/github-actions/compare/v1.7.5...v1.7.6) (2025-06-28)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump diggerhq/digger from 0.6.106 to 0.6.109 in the gha group across 1 directory ([#58](https://github.com/kieranbrown/github-actions/issues/58)) ([e124be0](https://github.com/kieranbrown/github-actions/commit/e124be0554ca8a98965bf84463a50d9e35e167a8))
+* **deps:** bump diggerhq/digger in the gha group across 1 directory ([e124be0](https://github.com/kieranbrown/github-actions/commit/e124be0554ca8a98965bf84463a50d9e35e167a8))
+
+
+### Continuous Integration
+
+* configure dependabot to run weekly on saturday at 05:00 ([0525d65](https://github.com/kieranbrown/github-actions/commit/0525d65f0a8480736a0518ce29797d25cd465fa8))
+* fix invalid dependabot time config ([5f81809](https://github.com/kieranbrown/github-actions/commit/5f8180997cfa5c2acf3e385d2e19f65c680bbaf2))
+
 ## [1.7.5](https://github.com/kieranbrown/github-actions/compare/v1.7.4...v1.7.5) (2025-06-22)
 
 
