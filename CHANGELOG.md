@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.9](https://github.com/kieranbrown/github-actions/compare/v1.7.8...v1.7.9) (2025-07-05)
+
+
+### Code Refactoring
+
+* **actionlint:** refactor to use reviewdog ([#61](https://github.com/kieranbrown/github-actions/issues/61)) ([b466c40](https://github.com/kieranbrown/github-actions/commit/b466c40d4dd98159c8fd8e3e8e9aa80601814d8c))
+
 ## [1.7.8](https://github.com/kieranbrown/github-actions/compare/v1.7.7...v1.7.8) (2025-07-05)
 
 
