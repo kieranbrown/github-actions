@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.8](https://github.com/kieranbrown/github-actions/compare/v1.7.7...v1.7.8) (2025-07-05)
+
+
+### Continuous Integration
+
+* consistency reference actions using sha instead of tags ([6e160c0](https://github.com/kieranbrown/github-actions/commit/6e160c07676b4f8435fd0271656c1f1cbeaa976c))
+
 ## [1.7.7](https://github.com/kieranbrown/github-actions/compare/v1.7.6...v1.7.7) (2025-07-05)
 
 
