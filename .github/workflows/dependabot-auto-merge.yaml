@@ -1,8 +1,11 @@
 name: Dependabot auto-merge
 
 on:
-  pull_request:
   workflow_call:
+  pull_request:
+    paths:
+      - '.github/actions/**/*'
+      - '.github/workflows/**/*'
 
 jobs:
   dependabot:

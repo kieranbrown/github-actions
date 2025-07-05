@@ -35,13 +35,13 @@ jobs:
     steps:
       - uses: kieranbrown/github-actions/.github/actions/setup-tgenv@v1
 
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         if: github.event_name == 'issue_comment'
         with:
           clean: false
           ref: refs/pull/${{ github.event.issue.number }}/merge
 
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         if: github.event_name != 'issue_comment'
         with:
           clean: false
@@ -60,7 +60,7 @@ jobs:
           search_artifacts: true
           if_no_artifact_found: ignore
 
-      - uses: aws-actions/configure-aws-credentials@v4.2.1
+      - uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
         if: inputs.aws-role-to-assume
         with:
           aws-region: us-east-1
@@ -94,7 +94,7 @@ jobs:
             (.. | select(tag == "!!str")) |= envsubst(nu)
           ' digger.yaml
 
-      - uses: diggerhq/digger@v0.6.109
+      - uses: diggerhq/digger@ec77f5be2d78db212e81656cf7dcf14192947043 # v0.6.109
         env:
           AWS_REGION: us-east-1 # required since https://github.com/diggerhq/digger/pull/1350
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -113,7 +113,7 @@ jobs:
           setup-tfenv: true
           upload-plan-destination: ${{ inputs.mode != 'drift-detection' && inputs.upload-plan-destination }}
 
-      - uses: actions/upload-artifact@v4.6.2
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: inputs.mode != 'drift-detection'
         with:
           name: builds
