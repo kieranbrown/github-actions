@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.7](https://github.com/kieranbrown/github-actions/compare/v1.7.6...v1.7.7) (2025-07-05)
+
+
+### Continuous Integration
+
+* **actionlint:** added workflow ([5fb5fd1](https://github.com/kieranbrown/github-actions/commit/5fb5fd1afba6e2255e69c7b722cc4502517dae09))
+* **pre-commit-autoupdate:** reduce timeout-minutes to 1m ([fae5c8f](https://github.com/kieranbrown/github-actions/commit/fae5c8f0d094abab1546068e000a42219c2642f4))
+* remove concurrency blocks ([6b8cdb8](https://github.com/kieranbrown/github-actions/commit/6b8cdb83e7730d040fe8f135d5a4653b5f0b20ed))
+
 ## [1.7.6](https://github.com/kieranbrown/github-actions/compare/v1.7.5...v1.7.6) (2025-06-28)
 
 
