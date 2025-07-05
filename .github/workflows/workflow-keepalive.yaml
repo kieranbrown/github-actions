@@ -3,10 +3,6 @@ name: Workflow Keepalive
 on:
   workflow_call:
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   keepalive:
     runs-on: ubuntu-24.04

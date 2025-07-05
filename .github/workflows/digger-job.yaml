@@ -21,10 +21,6 @@ on:
       DIGGER_SLACK_WEBHOOK_URL:
         required: false
 
-concurrency:
-  group: ${{ github.workflow }}
-  cancel-in-progress: false
-
 jobs:
   digger-job:
     runs-on: ubuntu-24.04
