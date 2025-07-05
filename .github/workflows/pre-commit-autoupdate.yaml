@@ -2,14 +2,13 @@ name: Pre-commit AutoUpdate
 
 on:
   workflow_call:
-  workflow_dispatch:
   schedule: ## 8am every week on Monday
     - cron: '0 8 * * 1'
 
 jobs:
   autoupdate:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 1
     permissions:
       contents: write
       pull-requests: write
