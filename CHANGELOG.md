@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.10](https://github.com/kieranbrown/github-actions/compare/v1.7.9...v1.7.10) (2025-07-06)
+
+
+### Miscellaneous Chores
+
+* adjust schedules to 5am on Saturday ([6153926](https://github.com/kieranbrown/github-actions/commit/6153926f7d34cfdeaaf764f887a60ea63fdfb5aa))
+
+
+### Continuous Integration
+
+* **digger:** fix slack webhooks ([fa38ece](https://github.com/kieranbrown/github-actions/commit/fa38ece0558b061047ac589a7002eb8ecebbace1))
+
 ## [1.7.9](https://github.com/kieranbrown/github-actions/compare/v1.7.8...v1.7.9) (2025-07-05)
 
 
