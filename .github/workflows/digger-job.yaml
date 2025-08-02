@@ -94,7 +94,7 @@ jobs:
             (.. | select(tag == "!!str")) |= envsubst(nu)
           ' digger.yaml
 
-      - uses: diggerhq/digger@71e3c0a3f4cae34ef0536645a5ddcf831f6e3941 # v0.6.111
+      - uses: diggerhq/digger@c57e8b9a10ea1c3c1128d1e1960d23534ca8e008 # v0.6.114
         env:
           AWS_REGION: us-east-1 # required since https://github.com/diggerhq/digger/pull/1350
           GITHUB_CONTEXT: ${{ toJson(github) }}
