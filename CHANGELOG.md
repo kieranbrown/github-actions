@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.11](https://github.com/kieranbrown/github-actions/compare/v1.7.10...v1.7.11) (2025-08-09)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump diggerhq/digger from 0.6.109 to 0.6.111 in the gha group across 1 directory ([#66](https://github.com/kieranbrown/github-actions/issues/66)) ([df8dbda](https://github.com/kieranbrown/github-actions/commit/df8dbda0598cfc24351d5b467424119807660216))
+* **deps:** bump diggerhq/digger from 0.6.111 to 0.6.114 in the gha group across 1 directory ([#68](https://github.com/kieranbrown/github-actions/issues/68)) ([b576c93](https://github.com/kieranbrown/github-actions/commit/b576c93fb922089eea688995260def0f9c586304))
+* **deps:** bump diggerhq/digger in the gha group across 1 directory ([b576c93](https://github.com/kieranbrown/github-actions/commit/b576c93fb922089eea688995260def0f9c586304))
+* **deps:** bump diggerhq/digger in the gha group across 1 directory ([df8dbda](https://github.com/kieranbrown/github-actions/commit/df8dbda0598cfc24351d5b467424119807660216))
+* **deps:** bump slackapi/slack-github-action ([f3ae724](https://github.com/kieranbrown/github-actions/commit/f3ae7244fc50ec8b4066b3ea7ce137d9fb6eee1d))
+* **deps:** bump slackapi/slack-github-action from 2.1.0 to 2.1.1 in the gha group across 1 directory ([#64](https://github.com/kieranbrown/github-actions/issues/64)) ([f3ae724](https://github.com/kieranbrown/github-actions/commit/f3ae7244fc50ec8b4066b3ea7ce137d9fb6eee1d))
+* **deps:** bump the gha group across 1 directory with 3 updates ([#69](https://github.com/kieranbrown/github-actions/issues/69)) ([9208b21](https://github.com/kieranbrown/github-actions/commit/9208b2185b0a57ac3e751c7e481870df94ea5338))
+
 ## [1.7.10](https://github.com/kieranbrown/github-actions/compare/v1.7.9...v1.7.10) (2025-07-06)
 
 
