@@ -60,7 +60,7 @@ jobs:
           search_artifacts: true
           if_no_artifact_found: ignore
 
-      - uses: aws-actions/configure-aws-credentials@cbe3b392738ccf3f987d68400dafcf4b0624a56c # v6.2.4
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
         if: inputs.aws-role-to-assume
         with:
           aws-region: us-east-1
@@ -94,7 +94,7 @@ jobs:
             (.. | select(tag == "!!str")) |= envsubst(nu)
           ' digger.yaml
 
-      - uses: diggerhq/digger@3053cda26247aa3cb94dcd4b8a253ee3cbc78243 # v0.6.149
+      - uses: diggerhq/digger@85cd59db7caa3d8bf6cefe303a62c12812b0bc48 # v0.6.151
         env:
           AWS_REGION: us-east-1 # required since https://github.com/diggerhq/digger/pull/1350
           GITHUB_CONTEXT: ${{ toJson(github) }}
