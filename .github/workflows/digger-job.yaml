@@ -51,7 +51,7 @@ jobs:
           rm -f digger.yml digger.yaml
           mv "${RUNNER_TEMP}/digger.yaml" .
 
-      - uses: dawidd6/action-download-artifact@d63b86af1b34672e53c440b1b83979861906bad7 # v24
+      - uses: dawidd6/action-download-artifact@eab87c9830c39eff17e5a6eadb20bfb4bc880477 # v27
         if: inputs.mode != 'drift-detection'
         with:
           name: builds
@@ -94,7 +94,7 @@ jobs:
             (.. | select(tag == "!!str")) |= envsubst(nu)
           ' digger.yaml
 
-      - uses: diggerhq/digger@85cd59db7caa3d8bf6cefe303a62c12812b0bc48 # v0.6.151
+      - uses: diggerhq/digger@9ac4e2237b7b8afa455f422b92737bfe106d495c # v0.6.152
         env:
           AWS_REGION: us-east-1 # required since https://github.com/diggerhq/digger/pull/1350
           GITHUB_CONTEXT: ${{ toJson(github) }}
